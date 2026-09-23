@@ -7,7 +7,7 @@ Author: Oluomachukwu Otuadinma · Supervisor: Dr V. L. Raju Chinthalapati
 
 ## Overview
 
-This repository accompanies the dissertation, which advances grouped time-series forecasting by integrating LSTM and GRU architectures for stock price prediction across four NASDAQGS equities (**AMZN, GOOGL, BALL, QCOM**), using sliding 40-day windows to predict the 41st day. Three hybrid model families are evaluated:
+This repository accompanies the dissertation, which advances grouped time-series forecasting by integrating LSTM and GRU architectures for stock price prediction across four NASDAQGS equities (**AMZN, GOOGL, BALL, QCOM**), using sliding 60-day windows to predict the 61st day. Three hybrid model families are evaluated:
 
 | Family | Notebook | Architecture |
 |---|---|---|
@@ -51,7 +51,7 @@ Notebooks download daily Close data via `yfinance` (2010-01-04 → 2025-09-09) �
 ## Known caveats (honest notes)
 
 - **Attention**: the custom `AttentionLayer` class is defined in the sequential-hybrid notebooks but is **not wired into the final models** — attention was evaluated during the project and ultimately not adopted (Transformer.ipynb contains the working attention implementation). This matches the dissertation's finding that attention *diminished* performance.
-- **Window length**: the parallel-hybrid notebook uses `num_days_used = 60`, while the dissertation text and the other notebooks use 40 — flagged as a known discrepancy.
+- **Window length**: all notebooks use a standardised 60-day sliding window (`num_days_used = 60`); the printed dissertation text refers to 40-day windows from an earlier iteration of the experiments.
 - Notebook outputs are stripped to keep the repo lightweight; re-run to regenerate plots and metrics.
 - These notebooks were developed in Google Colab; expect `/content/...` paths and Colab badges.
 
